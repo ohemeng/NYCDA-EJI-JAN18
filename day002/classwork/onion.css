@@ -1,0 +1,19 @@
+h1{
+	color: darkgreen;
+	text-align: center;
+}
+h3{
+	text-align: center;
+}
+p{
+	line-height: 19px;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+span{
+	text-transform: uppercase;
+}

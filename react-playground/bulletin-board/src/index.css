@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: kalam, sans-serif;
+}
+
+.note{
+	width: 15vw;
+	height: 10vw;
+	background-color: yellow;
+	border: 1px solid black;
+	box-shadow: 5px 5px 15px 0 rgba(0,0,0, 0.2);
+	margin: 2%;
+	position: absolute;
+}
+
+#edit, #remove, #save{
+	position: relative;
+	top: 3vw;
+	margin-bottom: 2px;
+	float: right;
+}
+#edit{
+	background-color: cyan;
+}
+#remove{
+	background-color: red;
+}
+#save{
+	background-color: lightgreen;
+}
+#add{
+	position: absolute;
+	top: 4vw;
+	left: 80vw;
+	width: 20px;
+	height: 20px;
+	background-color: white;
+}
+textarea{
+	height: 9vw ;
+}
+
+.board{
+/*	background-color: brown;*/
+	width: 100vw;
+	height: 90vw;
+	background: #eab92d;
+}

@@ -1,0 +1,66 @@
+body {
+	font-family: Roboto, sans-serif;
+	color: #8c8c8c;
+/*	width & margin below*/
+	width: 80%; 
+	margin: 0 auto;
+}
+
+/* added anvil class & styling below */
+.anvil{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.navigation ul {
+    list-style-type: none;
+    float: right;
+    /* added margin for ul */
+		margin-top: 55px;
+}
+
+.navigation li {
+	display: inline;
+	font-size: 28px;
+
+}
+
+.navigation a {
+	text-decoration: none;
+	color: #8c8c8c;
+}
+
+.TextOne {
+	float: left;
+	/* added width */
+	width: 45%;
+	margin-right: 10%
+}
+
+.TextTwo {
+	float: left;
+	/* added width */
+	width: 45%;
+}
+
+@media (max-width: 768px){
+	.logo{
+	display: block;
+	}
+	.TextOne, .TextTwo{
+		width: 100%;
+	}
+	.navigation ul{
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 0;
+	float: left;
+	padding: 0;
+	}
+	.navigation li{
+		display: block;
+	}
+	.anvil{
+		display: none;
+	}
+}

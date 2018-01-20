@@ -1,0 +1,50 @@
+body{
+	font-size: 17px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+h1{
+	color: darkgreen;
+	font-family: Georgia;
+	text-align: center;
+}
+
+h3{
+	font-family: Georgia;
+	text-align: center;
+}
+
+p{
+		line-height: 19px;
+}
+
+span{
+	text-transform: uppercase;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+img{
+	width: 200px;
+	height: 200px;
+}
+.photo{
+	padding-right: 10px;
+	float: left;
+}
+
+ul{
+	margin-left: 250px;
+}
+
+.caption{
+	font-style: italic;
+}
+
