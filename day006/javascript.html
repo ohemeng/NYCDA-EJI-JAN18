@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+</head>
+<body>
+
+<button id="btn1">Click Me</button>
+
+<script type="text/javascript">
+
+var btn = document.getElementById("btn1");
+btn.style.backgroundColor = "yellow";
+
+// btn.addEventListener("click", function(){
+// 	alert("You clicked Me");
+// })
+
+btn.onclick = function(){
+	alert("You clicked Me");
+}
+
+</script>
+</body>
+</html>

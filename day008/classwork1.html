@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Knocking the Door</title>
+</head>
+<body>
+<input type="number" name="door" id="doorNum">
+<button id="btn">Submit</button>
+
+<script type="text/javascript">
+	var selectDoor = function(door){
+		if(door == 1){
+			alert("You selected door #" + door);
+		}else if(door == 2){
+			alert("You selected door #" + door);
+		}else if(door == 3){
+			alert("You selected door #" + door);
+		}else{
+			alert("You didn't select 1, 2, or 3");
+		}
+	}
+	var btn = document.getElementById('btn')
+	btn.onclick = function(){
+		var doorNum = document.getElementById("doorNum");
+		doorValue = doorNum.value;
+		selectDoor(doorValue);
+	}
+
+</script>
+</body>
+</html>
