@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>For Tania</title>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<style type="text/css">
+	body{
+		font-family: 'Press Start 2P', cursive;
+		color: green;
+		background-color: black;
+	}
+		#roles{
+			display: inline-block;
+			width: 40%;
+			float: left;
+		}
+		#bc{
+			width: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<p>Welcome to Tania's website.</p>
+	<p>Please hit "Enter" key to see my roles:</p>
+	<div id="roles">
+	 	<p id="dev">Developer</p>
+	  <p id="market">Marketer</p>
+	  <img id="bc" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flickering_cursor.gif/120px-Flickering_cursor.gif">
+	 </div>
+	  <img id="pic">
+	
+  <script type="text/javascript">
+  	var dev = document.getElementById("dev");
+var market = document.getElementById("market");
+
+var pic = document.getElementById("pic");
+pic.style.width = "300px";
+pic.style.borderRadius = "20px";
+
+dev.onmouseover = function(){
+  pic.setAttribute("src", "https://s3.amazonaws.com/s3.imagefinder.co/uploads/2015/12/21000845/1300x867x00062-1300x867.jpg.pagespeed.ic_.nhyDu09kSW-880x587.jpg");
+}
+dev.onmouseleave = function(){
+  pic.setAttribute("src", "");
+}
+
+market.onmouseover = function(){
+  pic.setAttribute("src", "http://www.mmaglobal.com/files/styles/speaker/public/speakers/tania-headshot.jpg");
+}
+market.onmouseleave = function(){
+  pic.setAttribute("src", "");
+}
+
+dev.style.display = "none";
+market.style.display = "none";
+
+document.body.onkeypress = function(e){
+  if(e.which == 13){
+    dev.style.display = "block";
+    market.style.display = "block";
+  }
+}
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature Converter</title>
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+  <label>
+    Temperature:  
+  </label>
+
+        <select id="dropdown">
+          <option>Celsius to Fahrenheit</option>
+          <option>Fahrenheit to Celsius</option>
+        </select>
+
+  <br>
+
+  <input type="text" id="temperature" /><span id="convertunit"></span>
+  <br>
+  <button id="convertbtn">Convert</button>
+
+
+  <!-- <button class="convertbtn">Convert!</button> -->
+
+  <p>Is equal to <span id="converted"></span>° <span id="units"></span>.</p>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/project.js"></script>
+</body>
+</html>

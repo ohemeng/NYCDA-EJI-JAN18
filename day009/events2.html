@@ -41,8 +41,18 @@ Double-click the paragraphs below to hide them:
 	function myClick(){
 		alert("Hey you clicked me");
 	}
+	function myClick(){
+		console.log("Hey you clicked me");
+	}
 
 	var box1 = document.getElementById('box1');
+
+	box1.addEventListener('click', function(){
+		alert("add Event");
+	})
+		box1.addEventListener('click', function(){
+		console.log("add Event");
+	})
 
 	var box2 = document.getElementById('box2');
 

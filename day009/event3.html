@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+	<style type="text/css">
+		div{
+			width: 45%;
+			height: 200px;
+		}
+		#red{
+			background-color: red;
+			display: inline-block;
+		}
+		#yellow{
+			background-color: yellow;
+			display: inline-block;
+		}
+		#green{
+			background-color: green;
+			display: inline-block;
+		}
+		#blue{
+			background-color: blue;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="red"></div>
+	<div id="yellow"></div>
+	<div id="green"></div>
+	<div id="blue"></div>
+	<script type="text/javascript">
+		
+		var divs = document.querySelectorAll("div");
+		var counter = divs.length;
+		for(let i = 0; i < divs.length; i++){
+			divs[i].onclick = function(){
+				if(counter != 1){
+				divs[i].style.visibility = "hidden";
+				counter--;
+			}else{
+				alert("You like the color " + divs[i].getAttribute("id"));
+			}
+			}
+		}
+	</script>
+</body>
+</html>

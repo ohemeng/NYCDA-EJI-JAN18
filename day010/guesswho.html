@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess Who</title>
+	<style type="text/css">
+		#pic{
+/*			background: url(http://stargist.com/wp-content/uploads/2017/05/Brad-Pitt.jpg);*/
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: -1;
+			width: 900px;
+			height: 800px;
+		}
+		.tile{
+			width: 24vw;
+			height: 24vh;
+		}
+		#red, #red2, #red3, #red4{
+			background-color: red;
+			display: inline-block;
+		}
+		#yellow, #yellow2, #yellow3, #yellow4{
+			background-color: yellow;
+			display: inline-block;
+		}
+		#green, #green2, #green3, #green4{
+			background-color: green;
+			display: inline-block;
+		}
+		#blue, #blue2, #blue3, #blue4{
+			background-color: blue;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+
+<div id="container"><img src="" id="pic">
+	<div id="red" class="tile"></div>
+	<div id="yellow" class="tile"></div>
+	<div id="green" class="tile"></div>
+	<div id="blue" class="tile"></div>
+	<div id="red2" class="tile"></div>
+	<div id="yellow2" class="tile"></div>
+	<div id="green2" class="tile"></div>
+	<div id="blue2" class="tile"></div>
+	<div id="red3" class="tile"></div>
+	<div id="yellow3" class="tile"></div>
+	<div id="green3" class="tile"></div>
+	<div id="blue3" class="tile"></div>
+	<div id="red4" class="tile"></div>
+	<div id="yellow4" class="tile"></div>
+	<div id="green4" class="tile"></div>
+	<div id="blue4" class="tile"></div>
+</div>
+	<script type="text/javascript">
+
+		var pic1 = "http://stargist.com/wp-content/uploads/2017/05/Brad-Pitt.jpg";
+		var pic2 ="https://www.famousbirthdays.com/headshots/halle-berry-3.jpg"
+		var pic3 = "https://media.gq.com/photos/5583e3e009f0bee5644292df/master/w_704,h_964,c_limit/copilot-style-grooming-201310-george-clooney-hair-08.jpg"
+
+		
+		var pics = [pic1, pic2, pic3];
+		var pic = document.getElementById("pic");
+		var j = Math.floor(Math.random()*pics.length);
+
+		// var pic = document.getElementById("pic");
+		// var picAttr = pic.getAttribute("src");
+		// var picLength = picAttr.length - 3
+		// var picAttrSub = picAttr.substring(-3, -1);
+		// console.log(picAttrSub);
+
+		var tile = document.querySelectorAll(".tile");
+		var counter = tile.length;
+		function start(){
+		pic.setAttribute("src", pics[j]);
+		for(let i = 0; i < tile.length; i++){
+			tile[i].onclick = function(){
+				if(counter != 1){
+				tile[i].style.visibility = "hidden";
+				counter--;
+			}else{
+				alert("You like the color " + tile[i].getAttribute("id"));
+				j++;
+				if(j==pics.length){
+					j = 0;
+				}
+				// start();
+				location.reload();
+			}
+			}
+		}
+	}
+	start();
+	</script>
+</body>
+</html>

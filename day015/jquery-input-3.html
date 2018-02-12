@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using jQuery 3</title>
+	<style type="text/css">
+		fieldset{
+			width: 40%;
+		}
+		fieldset:nth-child(7){
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+<h1>Online Pizza Shop</h1>
+<fieldset>
+	<label>Name:</label>
+	<input type="text" name="name" id="name">
+</fieldset>
+<fieldset>
+	<label>Pizza:</label>
+	<select id="size">
+		<option>small</option>
+		<option>medium</option>
+		<option>large</option>
+	</select>
+</fieldset>
+<fieldset>
+	<label>Qty:</label>
+	<select id="qty">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+	</select>
+</fieldset>
+<fieldset>
+	<label>Cheese:</label>
+	<input type="radio" name="topping" id="cheese">
+	<label>Pepperoni:</label>
+	<input type="radio" name="topping" id="pepperoni">
+</fieldset>
+<fieldset>
+	<label>Deliver:</label>
+	<input type="checkbox" name="deliver" id="deliver">
+</fieldset>
+<fieldset>
+	<label>Order status:</label>
+	<span id="order"></span>
+</fieldset>
+<button id="btn">Checkout</button>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$("#btn").click(function(){
+		let name = $("#name").val();
+		let size = $("#size").val();
+		let qty = $("#qty").val();
+		let top = $("input[name=topping]:checked").attr("id");
+		let pizza = {
+			small: 7.99,
+			medium: 9.99,
+			large: 11.99
+		}
+		$("#order").html("<br>Thanks " + name + ", <br> Your order is "+ qty + " " + size + " pizza. <br> Cost: $" + parseFloat(pizza[size] * parseInt(qty)));
+
+			if($("#deliver").is(":checked")){
+				$("#order").append("<br>Order will be delivered");
+			};
+			let topping = {
+				cheese: "cheese",
+				pepperoni: "pepperoni"
+			}
+			$("#order").append("<br> The topping is " + topping[top]);
+	})
+</script>
+</body>
+</html>

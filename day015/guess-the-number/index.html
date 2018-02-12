@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess The Number</title>
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <p> Guess a number between 1 - 10, inclusive. The correct number is generated randomly by the program. </p>
+  <label>
+    Guess The Number: 
+  </label>
+
+  <input type="text" id="guess" />
+
+ 
+  <button id="confirm">Accept Your Entry</button>
+  <div id="status">
+  Number of guesses so far: <span id="yourNumberOfGuesses"></span>
+  </div>
+
+  <div id="notCorrect">
+  <p>You are not correct. Try Again.</p>
+  </div>
+
+  <div id="correct">
+  <p>You are CORRECT!!!!</p>
+  </div>
+
+  <div id="revealSecret">
+  Yes, the secret number is <span id="secretNumber"></span>   !!!.
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/guess.js"></script>
+</body>
+</html>

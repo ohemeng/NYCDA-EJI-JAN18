@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+Password:	<input type="password" id="pass">
+<br>
+
+Admin: <input type="radio" id="admin">
+<br>
+
+Developer: <input type="checkbox" id="developer">
+<br>
+
+Location: <select id="loc">
+						<option>New York</option>
+						<option>New Jersey</option>
+						<option>California</option>
+					</select>
+<br>
+
+
+<button id="btn">Sign In</button><br>
+
+Password: <span id="result1"></span><br>
+Admin: <span id="result2"></span><br>
+Developer: <span id="result3"></span><br>
+Location: <span id="result4"></span>
+
+
+
+<script type="text/javascript">
+var btn = document.getElementById("btn");
+var pass = document.getElementById("pass");
+var admin = document.getElementById("admin");
+var loc = document.getElementById("loc");
+
+var dveloper = document.getElementById("developer");
+var result1 = document.getElementById("result1");
+var result2 = document.getElementById("result2");
+var result3 = document.getElementById("result3");
+var result4 = document.getElementById("result4");
+
+
+
+btn.addEventListener("click", function(){
+	if(pass.value == "123"){
+		result1.innerHTML = "You are logged in";
+	}else{
+		result1.innerHTML = "Password failed";
+	}
+
+	if(admin.checked == true){
+		result2.innerHTML = "You are an admin";
+	}
+
+	if(developer.checked == true){
+		result3.innerHTML = "You are a developer";
+	}
+
+(loc.value == "New York") ? result4.innerHTML = "Go Yankees!!!!" : result4.innerHTML = "You live in "+ loc.value;
+
+})
+</script>
+
+</body>
+</html>

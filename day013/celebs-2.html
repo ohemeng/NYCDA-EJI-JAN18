@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Celebs Objects #2</title>
+</head>
+<body>
+ <div id="root"></div>
+
+
+<script type="text/javascript">
+	// Celebs #2
+
+var george = {
+  fname: "George",
+  lname: "Clooney",
+  age: 56,
+  height: "5ft 11in",
+  url: "https://upload.wikimedia.org/wikipedia/commons/8/8d/George_Clooney_2016.jpg"
+}
+
+var jane = {
+  fname: "Jane",
+  lname: "Seymour",
+  age: 66,
+  height: "5ft 3in",
+  url: "https://www.biography.com/.image/t_share/MTE4MDAzNDEwNzY2NDk3Mjk0/jane-seymour-9542468-1-402.jpg"
+}
+
+var halle = {
+  fname: "Halle",
+  lname: "Berry",
+  age: 51,
+  height: "5ft 5in",
+  url: "https://www.biography.com/.image/t_share/MTE1ODA0OTcxODYxNjQwNzE3/halle-berry-9542339-1-402.jpg"
+}
+
+var brad = {
+  fname: "Brad",
+  lname: "Pitt",
+  age: 54,
+  height: "5ft 11in",
+  url: "https://upload.wikimedia.org/wikipedia/commons/5/51/Brad_Pitt_Fury_2014.jpg"
+}
+
+var celebs = [brad, halle, jane, george];
+var div = document.getElementById("root");
+var img = document.createElement("img");
+img.setAttribute("src", celebs[2].url);
+div.appendChild(img);
+img.style.width = "200px";
+img.style.borderRadius = "20px";
+
+
+for(let i = 0; i< celebs.length; i++){
+  img.setAttribute("src", celebs[i].url);
+  var addImg = div.appendChild(img);
+  div.innerHTML += "<br>" + "Name: " + celebs[i].fname + " " + celebs[i].lname + "<br> Age: "+ celebs[i].age + "<br>" + "Height: "+ celebs[i].height + "<br>" + "<br><br>";
+  
+}
+
+document.body.setAttribute("style", "background-color: orange; width: 80%; margin: 0 45%");
+
+</script>
+</body>
+</html>

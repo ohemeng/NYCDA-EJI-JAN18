@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>DOM Manipulation</title>
+</head>
+<body>
+  <h1 class="heading">Using DOM Manipulation</h1>
+  <h3>Lets manipulate this</h3>
+  
+  <p id="p1" class="para">This is paragraph 1</p>
+  <p id="p2" class="para">This is paragraph 2</p>
+  <p id="p3" class="para">This is paragraph 3</p>
+
+  <ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+  <script type="text/javascript">
+    var p1 = document.getElementById('p1');
+
+p1.style.color = "red";
+
+var heading = document.getElementsByClassName("heading");
+heading[0].style.color = "blue";
+
+var para = document.getElementsByClassName("para");
+para[1].style.color = "pink";
+
+console.log(para);
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Input Boxes</title>
+</head>
+<body>
+<fieldset>
+	<label>First Number</label>
+	<input type="number" name="num1" id="num1">
+</fieldset>
+<fieldset>
+	<label>Second Number</label>
+	<input type="number" name="num2" id="num2">
+</fieldset>
+<fieldset>
+	<label>Result: </label>
+	<span id="result"></span>
+</fieldset>
+<button id="btn">Enter</button>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$("#btn").click(function(){
+		let num1 = $("#num1").val();
+		let num2 = $("#num2").val();
+		let result = parseInt(num1) + parseInt(num2);
+		$("#result").html(result);
+	})
+</script>
+</body>
+</html>

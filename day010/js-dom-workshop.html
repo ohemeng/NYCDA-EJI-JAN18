@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS DOM Workshop</title>
+</head>
+<body>
+	<div id="loginForm">
+	<div>
+		<label>Username:</label>
+		<input type="text" name="username" id="username">
+	</div>
+	<div>
+		<label>Password:</label>
+		<input type="password" name="password" id="password">
+	</div>
+
+	<button id="btn">Sign In</button>
+	</div>
+	<h1></h1>
+	<p></p>
+	<script type="text/javascript">
+
+		var btn = document.getElementById("btn");
+
+		btn.addEventListener("click", function(){
+			var loginForm = document.getElementById("loginForm");
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			var h1 = document.querySelector("h1");
+			var p = document.querySelector("p");
+
+			if(username.length == 0){
+				alert("Please enter your username");
+			}else if(password != "12345678"){
+				alert("You password is incorrect");
+			}else{
+				loginForm.style.display = "none";
+
+				// btn.style.display = "none";
+				h1.innerHTML = `Hooray! You are logged in, ${username}`;
+
+				document.body.addEventListener("keypress", function(event){
+					console.log(event.keyCode);
+					var x = event.keyCode;        
+					var y = String.fromCharCode(x);
+					console.log(y);
+					//p.innerHTML += y;
+					if(h1.innerHTML == `Hooray! You are logged in, ${username}`){
+						h1.innerHTML = "";
+					}
+					h1.innerHTML += y;
+				})
+			}
+		})
+
+
+	</script>
+</body>
+</html>

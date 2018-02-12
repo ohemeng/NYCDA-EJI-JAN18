@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jukebox Starter Kit</title>
+	<link rel="stylesheet" type="text/css" href="jukebox.css">
+</head>
+<body>
+
+	<div>
+		<div class="songs">
+			Select Song:
+			<select id="song">
+				<option>Bye Baby</option>
+				<option>Ladies Night</option>
+				<option>Get Down</option>
+				<option>I Will Survive</option>
+			</select>
+		</div>
+		<div>
+			<audio id="jukebox" controls>
+	  		<source src="" type="audio/mpeg">
+	  		Your browser does not support the audio element.
+			</audio>
+		</div>
+		<div class="controls">
+			<button id="play">Play</button>
+			<button id="pause">Pause</button>
+			<button id="stop">Stop</button>
+			<button id="shuffle">Shuffle</button><br>
+			Play from playlist: <input type="checkbox" id="playlist"><br>
+			Song currently playing: <span id="currentSong"></span><img src="http://www.henriboulad.com/images/Boutons/equalizer.gif">
+		</div>
+	</div>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+</script>
+<script type="text/javascript" src="jukebox.js"></script>
+</body>
+</html>
