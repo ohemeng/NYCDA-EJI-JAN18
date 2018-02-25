@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Select Categories</title>
+	<style type="text/css">
+	.root{
+		position: relative;
+		left: 0;
+		top: 0;
+	}
+	.box{
+		width: 2vw;
+		height: 2vw;
+		border: 1px solid black;
+		float: left;
+		background-color: white;
+		margin: 0;
+		padding: 0;
+	}
+	.new-div{
+		background-color: white;
+	}
+	body{
+		background-image: url("https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAULAAAAJDhkYWYwNTc0LTE0NGYtNDMzNy04NmU4LTQzMDA5MTIzMzA1OA.jpg");
+		z-index: -1;
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding: 0;
+	}
+</style>
+</head>
+<body>
+
+<div class="root"></div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+	for(var i = 0; i < 2000; i++){
+		$(".root").append("<div class='box'></div>");
+	}
+
+	$("div").on('dblclick', function(){
+		$("div").off("mouseover");
+	})
+	$("div").on('mouseover', function(){
+		$(this).css("border-color", "rgba(255, 255, 255, 0)");
+		$(this).css("background-color", "rgba(255, 255, 255, 0)");
+	})
+
+
+$("#my-selection").on("change", function(){
+			var myColor = $("#my-selection").val();
+
+			$("div").on("mouseover", function(){
+				$(this).css("background", myColor);
+			})
+	})
+
+var pic1 = "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/14/104651357-GettyImages-490199644.1910x1000.jpg";
+
+var pic2 = "https://cdn.theatlantic.com/assets/media/old_wire/img/upload/2012/05/09/hoodietwo/lead_large.jpg";
+
+var pic3 = "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAULAAAAJDhkYWYwNTc0LTE0NGYtNDMzNy04NmU4LTQzMDA5MTIzMzA1OA.jpg"
+
+var pic4 = "https://obamawhitehouse.archives.gov/sites/obamawhitehouse.archives.gov/files/tout_images/barackobama-headshot.jpg";
+
+var pics = [pic1, pic2, pic3, pic4];
+var randomPic = Math.floor(Math.random()*4);
+$("body").css("background-image", "url(" + pics[randomPic] + ")");
+console.log(randomPic)
+</script>
+
+
+</body>
+</html>

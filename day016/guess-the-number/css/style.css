@@ -1,0 +1,29 @@
+body {
+	width: 90%;
+	margin-left: 50px;
+}
+
+#guess {
+	margin: 40px;
+}
+
+#revealSecret, #notCorrect, #correct {
+	display: none;
+}
+
+#notCorrect{
+	background-color: red;
+	height: 20px;
+	width: 300px;
+	text-align: center;
+	color: white;
+}
+
+#correct{
+	background-color: green;
+	height: 20px;
+	width: 300px;
+	text-align: center;
+	color: white;
+	margin-bottom: 20px;
+}

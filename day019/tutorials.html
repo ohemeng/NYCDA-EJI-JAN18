@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice #1</title>
+	<style type="text/css">
+		li{
+			display: inline-block;
+			border: 1px solid black;
+			width: 60px;
+			height: 30px;
+			background-color: black;
+			color: white;
+			padding-top: 10px;
+		}
+	</style>
+</head>
+<body>
+
+<h1>This is the title</h1>
+
+<div id="one">Another one</div>
+<p>Also paragraph</p>
+
+<div id="p-group">
+	<p id="para1">para 1</p>
+	<p id="para2">para 2</p>
+	<p id="para3">para 3</p>
+</div>
+
+<input type="text">
+
+<ul>
+	<li>Home</li>
+	<li>Products</li>
+	<li>Services</li>
+</ul>
+
+
+<script type="text/javascript">
+//Getting data from h1, id, p, input, li's
+	var mydata = document.querySelector("h1");
+	mydata.addEventListener("click", function(){
+		console.log(mydata.innerHTML);
+	})
+
+	let one = document.querySelector("#one")
+	one.addEventListener("click", function(){
+		console.log(one.innerHTML);
+	})
+
+	let p = document.querySelector("p");
+	p.addEventListener("click", function(){
+		console.log(p.innerHTML)
+	})
+
+	var myInput = document.querySelector("input");
+	myInput.addEventListener("keyup", function(){
+		if(myInput.value.length > 3){
+			console.log(myInput.value);
+		//	console.log(myInput.value.length);
+		}
+	})
+
+//Get data from p's in div
+
+
+	//Get para2 data.  firstChild.nodeValue is same as innerHTML
+	var para2 = document.querySelector("#para2");
+	para2.addEventListener("click", function(){
+		console.log(para2.firstChild.nodeValue);
+		console.log(para2.innerHTML);
+	})
+
+	//Get any p using e.target in Div
+	var pGroup = document.querySelector("#p-group");
+	pGroup.addEventListener("click", function(e){
+		console.log(e.target.innerHTML);
+		console.log(e.bubbles);
+	})
+
+
+
+//Get data from li's in ul
+	var myUl = document.querySelector("ul");
+	myUl.addEventListener("click", function(e){
+		console.log(e.target.innerHTML);
+		if(e.target.innerHTML === "Home"){
+			document.body.style.backgroundColor = "pink";
+		}
+		if(e.target.innerHTML === "Products"){
+			document.body.style.backgroundColor = "yellow";
+		}
+	})
+
+// Getting data from objects
+	let obj = {
+		first: "apple",
+		second: "orange",
+		third: "grapes"
+	}
+	console.log(obj["first"]);
+
+	var item = "third";
+	console.log(obj[item]);
+
+// Getting data from arrays
+let arr = ["nissan", "toyota", "honda"];
+console.log(arr[1]);  //output is toyota
+
+let myIndex = 2;
+console.log(arr[myIndex]); //output is honda
+
+// Using the array map
+function myUpperCap(x){
+	return x.toUpperCase();
+}
+console.log(arr.map(myUpperCap)); //
+console.log(arr);
+
+//Using the spread operator
+console.log(...arr); // listed nissan, toyota, honda
+console.log(...arr,"VW");
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

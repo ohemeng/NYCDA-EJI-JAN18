@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		span{
+			width: 100px;
+			height: 50px;
+			border: 1px solid black;
+			padding: 10px;
+			cursor: pointer;
+		}
+		#currentSongContainer{
+			margin-top: 30px;
+		}
+		#currentSong{
+			border:0px;
+		}
+	</style>
+</head>
+<body>
+<div id="jukebox">
+
+
+	<select id="listSongs"></select>
+	<br>
+	<br>
+
+	<img src="" id="artwork">
+	<br>
+	<br>
+	<div id="info"></div>
+		<div id="controls">
+			<span id="prevSong">Prev</span><span id="playSong">Play</span><span id="stopSong">Stop</span><span id="pauseSong">Pause</span><span id="nextSong">Next</span>
+		</div>
+</div>
+<div id="currentSongContainer">
+	Currently Playing: <span id="currentSong"></span>
+</div>
+<progress value="0" max="100" id="progressBar"></progress>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+</script>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+<script>
+	/*
+	$("#playSong").click(function(){
+		$("#jukeboxAudio")[0].play();
+	})
+	$("#stopSong").click(function(){
+		$("#jukeboxAudio")[0].load();
+	})
+	$("#pauseSong").click(function(){
+		$("#jukeboxAudio")[0].pause();
+	})
+	*/
+
+  SC.initialize({
+    //client_id: 'fd4e76fc67798bfa742089ed619084a6'
+    client_id: "ebe2d1362a92fc057ac484fcfb265049"
+  });
+
+  const playlist = [];
+
+  SC.get("/tracks",{q: "Dogs"}).then(function(response){
+ 		playlist.push(...response);
+  	console.log(response);
+  	//play(0);
+
+  	//list songs in select box
+  	var listBox = document.getElementById("listSongs");
+  	for(let i = 0; i<response.length; i++){
+  		console.log(response[i].title);
+  		listBox.innerHTML += `<option> ${response[i].title}</option>`;
+  	}
+  });
+
+  var progressBar = document.getElementById("progressBar");
+
+	// let player;
+  function play(index){
+  	if(!playlist[index].player){
+	  SC.stream(`/tracks/${playlist[index].id}`).then(function(player){
+	  	playlist[index].player = player;
+	  	setTimeout(checkProgress(player), 10000);
+	  	player.play();
+	  });
+		}else{
+			playlist[index].player.play();
+
+		}
+		document.getElementById("currentSong").innerHTML = `${playlist[index].title}`;
+		document.querySelector("#artwork").src = `${playlist[index].artwork_url}`;
+	//	setInterval(checkProgress, 1000);
+	}
+
+		function checkProgress(player){
+			console.log(player.currentTime());
+			console.log(progressBar.value);
+			//progressBar.value = player.currentTime();
+		}
+
+var songNumber;
+//click play to play 1st song
+	$("#playSong").click(function(){
+		songNumber = 0;
+		console.log(songNumber);
+		play(songNumber);
+	//	
+	})
+//click Pause to pause song
+	$("#pauseSong").click(function(){
+		playlist[songNumber].player.pause();
+	})
+
+//click Stop to stop song
+	$("#stopSong").click(function(){
+		playlist[songNumber].player.seek(0);
+		playlist[songNumber].player.pause();
+	})
+	$("#nextSong").click(function(){
+		songNumber++;
+		songNumber = songNumber % (playlist.length);
+		console.log(songNumber);
+		play(songNumber);
+	})
+		$("#prevSong").click(function(){
+		songNumber--;
+		songNumber = songNumber % (playlist.length);
+		console.log(songNumber);
+		playlist[songNumber].player.seek(0)
+		play(songNumber);
+	})
+
+
+</script>
+<script type="text/javascript" src="soundcloud-1.js"></script>
+</body>
+</html>

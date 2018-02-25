@@ -1,0 +1,20 @@
+img{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+#board{
+	width: 90vw;
+	height: 60vh;
+	background-color: orange;
+	border: 20px groove maroon;
+}
+
+h3{
+	text-align: center;
+}
+
+[draggable]{
+  cursor: move;
+}

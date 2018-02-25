@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using toggle class</title>
+	<style type="text/css">
+		#box1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+		}
+		.bigger{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+<div id="box1"></div>
+<div class="box2"></div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$("#box1").on("click", function(){
+		$("#box1").toggleClass("bigger", true);
+	})
+		$(".box2").on("click", function(){
+		$(".box2").toggleClass("bigger", true);
+	})
+</script>
+</body>
+</html>

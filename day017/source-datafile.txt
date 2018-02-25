@@ -1,0 +1,17 @@
+{
+	{
+	"fname": "John",
+	"lname": "Smith",
+	"age": 27,
+	}
+	{
+	"fname": "Jane",
+	"lname": "London",
+	"age": 23,
+	}
+	{
+	"fname": "Grace",
+	"lname": "Jones",
+	"age": 30
+	}
+}

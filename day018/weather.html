@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX and JSON</title>
+	<link rel="stylesheet" type="text/css" href="weather.css">
+</head>
+<body>
+
+<h1>Current Weather Information</h1>
+
+<div id="map"></div>
+
+<div>
+<label>US City:</label> <input type="text" name="city" id="city">
+</div>
+<div>
+<label>Temperature  (&#x2109):</label> <span id="temp"></span>
+</div>
+<div>
+<label>Humidity (%): </label><span id="humidity"></span>
+</div>
+<div>
+<label>Wind Speed (mph): </label><span id="wind"></span>
+</div>
+<div>
+<label>Description: </label><span id="description"></span>
+</div>
+<div>
+<label>Image Condition: </label><img src="" id="icon">
+</div>
+<button id="btn">Get Weather Info</button>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="weather.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+body{
+	background-color: maroon;
+	color: #ffffff;
+}
+#container{
+	width: 25%;
+	margin: 0 auto;
+}
+
+h1{
+	font-family: "Comic Sans MS"
+}

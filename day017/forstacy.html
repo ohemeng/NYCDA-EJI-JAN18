@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>April Fool</title>
+</head>
+<body>
+<h1>April Fool</h1>
+<div id="root">
+	
+</div>
+
+<script type="text/javascript">
+	var root = document.getElementById("root");
+	document.body.onkeypress = function(e){
+		console.log(e.which);
+		//console.log(e.keyCode);
+		if(e.keyCode == 46){
+			e.preventDefault;
+			console.log("Delete entered");
+		}
+		var word = e.keyCode + 5;
+		word = String.fromCharCode(word);
+		document.getElementById("root").innerHTML += word;
+	}
+</script>
+</body>
+</html>

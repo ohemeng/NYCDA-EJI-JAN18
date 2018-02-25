@@ -1,19 +1,6 @@
-
-// var jukebox = document.querySelector('.jukebox');
-// var play = document.querySelector('.play');
-// var stop = document.querySelector('.stop');
-// var pause = document.getElementById('pause');
-// //var title = document.getElementById('song').value;
-// var playlist = document.querySelector("#playlist");
-// var currentSong = document.querySelector("#currentSong");
- var theCurrentTime = 0;
-var jukeSong;
 var i = 0;
 var root = document.getElementById("root");
-var playAudio;
 var audio = document.createElement('audio');
-
-
 
 function Song(title, theId){
 	this.title = title;
@@ -31,6 +18,8 @@ function Song(title, theId){
 								titleSpan.innerHTML=title;
 								root.appendChild(titleSpan);
 								var controlsDiv = document.createElement("div");
+								root.style.border = "2px solid black";
+								controlsDiv.style.borderBottom = "2px solid black";
 								root.appendChild(controlsDiv);
 								var playBtn = document.createElement("button");
 								playBtn.innerHTML = "PLAY";
@@ -69,17 +58,12 @@ var ladiesNight = new Song("Ladies Night", "four");
 
 //Adding auto play from current playlist
 
-//const songs = ["getDown", byeBaby, iWillSurvive, ladiesNight];
 const songs = ["one", "two", "three", "four"];
 
 playSong();
 
 function playSong(){
 			document.getElementById(songs[i]).play()
-			//jukebox.src = songs[i] + ".mp3";
-			//jukebox.currentTime  = theCurrentTime;
-			//jukebox.play();
-			//titleSpan.innerHTML = songs[i];
 			setInterval(checkEnd, 1000);
 };
 
@@ -96,7 +80,6 @@ function checkEnd(){
 }
 
 // Adding Shuffle 
-
 var shuffleBtn = document.createElement("button");
 shuffleBtn.innerHTML = "SHUFFLE";
 shuffleBtn.setAttribute("id", "shuffle");
@@ -104,6 +87,7 @@ root.appendChild(shuffleBtn);
 
 const shuffle = document.getElementById("shuffle");
 shuffle.addEventListener("click", function(){
+		document.getElementById(songs[i]).load();
 	  var currentIndex = songs.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...

@@ -1,10 +1,11 @@
 // Using Draggable - Events
+// Using layerX, offsetX, pageX
 
-var box1 = document.getElementById("box1");
+
 
 var dragndrop = (function(){
   var myX;
-  var myY = '';
+  var myY;
   var item = '';
   
   function moveStart(e){
@@ -14,11 +15,11 @@ var dragndrop = (function(){
     item.style.zIndex = 10;
   }
   function moveDragOver(e){
-     e.preventDefault();
+    e.preventDefault();
    }
   
   function moveDrop(e){
-    e.preventDefault();
+    //e.preventDefault();
     item.style.left = e.pageX - myX + 'px';
     item.style.top = e.pageY - myY + 'px';
     item.style.zIndex = 0;

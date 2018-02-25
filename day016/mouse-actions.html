@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Select Categories</title>
+	<style type="text/css">
+	.box{
+		width: 2vw;
+		height: 2vw;
+		border: 1px solid black;
+		float: left;
+	}
+	.new-div{
+		background-color: white;
+	}
+</style>
+</head>
+<body>
+	<select id="my-selection">
+		<option></option>
+		<option>red</option>
+		<option>green</option>
+		<option>yellow</option>
+		<option>blue</option>
+		<option>pink</option>
+	</select>
+
+<div class="root"></div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+	for(var i = 0; i < 2000; i++){
+		$(".root").append("<div class='box'></div>");
+	}
+
+	$("div").on('dblclick', function(){
+		$("div").off("mouseover");
+	})
+	$("div").on('mouseover', function(){
+		$(this).css("background", "yellow");
+	})
+
+
+$("#my-selection").on("change", function(){
+			var myColor = $("#my-selection").val();
+
+			$("div").on("mouseover", function(){
+				$(this).css("background", myColor);
+			})
+	})
+
+
+</script>
+
+
+</body>
+</html>
