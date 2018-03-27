@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Form</title>
+</head>
+<body>
+<h3>Form #2: Find Person</h3>
+<!-- <form method="GET" action="/findGet3"> -->
+<label>First Name:</label><input type="text" name="firstname" id="firstname">
+<label>Last Name:</label><input type="text" name="lastname" id="lastname">
+<!-- <input type="submit" name="submit" value="Submit"> -->
+<button id="btn">Submit</button>
+<!-- </form> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$("#btn").click(function(){
+		$.get('http://localhost:3000/findGet3', function(data){
+				let firstname = $("#firstname").val();
+				console.log(data);
+				let data2 = JSON.parse(data);
+		for(i in data2){
+			if(firstname == data2[i].firstname){
+				$("#lastname").val(data2[i].lastname);
+			}
+		}
+		});
+	
+	})
+</script>
+
+</body>
+</html>

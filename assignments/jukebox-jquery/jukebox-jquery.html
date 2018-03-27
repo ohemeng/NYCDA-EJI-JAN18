@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jukebox Starter Kit</title>
+	<style type="text/css">
+		body{
+	width: 80%;
+	background-color: oldlace;
+}
+	</style>
+</head>
+<body>
+
+	<div>
+		<div class="songs">
+			Select Song:
+			<select id="song">
+				<option>Bye Baby</option>
+				<option>Ladies Night</option>
+			</select>
+		</div>
+		<div class="controls">
+			<button id="play">Play</button>
+			<button id="pause">Pause</button>
+			<button id="stop">Stop</button>
+			<button id="shuffle">Shuffle</button>
+		</div>
+	</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+</script>
+<script>
+console.log("jquery started");
+var jukeSong;
+var currentTime = 0;
+const songs = ["Bye Baby", "Ladies Night"];
+
+(function(){
+	var song = $("#song").val();
+	var song = song + ".mp3";
+	jukeSong = new Audio(song);
+	jukeSong.currentTime = currentTime;
+	jukeSong.play();
+})();
+
+$("#play").click(function(){
+	console.log("play clicked");
+	jukeSong.currentTime = currentTime;
+	song = $("#song").val();
+	song = song + ".mp3";
+	//jukeSong = new Audio(song);
+	jukeSong.play();
+})
+
+$("#pause").click(function(){
+	currentTime = jukeSong.currentTime;
+	jukeSong.pause();
+})
+$("#stop").click(function(){
+	jukeSong.pause();
+	currentTime = 0;
+})
+
+$("#shuffle").click(function(){
+	for(var i=0; i < songs.length; i++){
+		var song = songs[i] + ".mp3";
+		jukeSong = new Audio(song);
+		jukeSong.play();
+	}
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SoundCloud using Promises</title>
+</head>
+<body>
+<button id="playbtn">PLAY</button><button id="stopbtn">STOP</button><button id="pausebtn">PAUSE</button>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+<script type="text/javascript">
+SC.initialize({
+  client_id: "ebe2d1362a92fc057ac484fcfb265049"
+});
+var myPlayer;
+var playbtn = document.querySelector("#playbtn");
+var stopbtn = document.querySelector("#stopbtn");
+var pausebtn = document.querySelector("#pausebtn");
+playbtn.addEventListener("click", function(){
+	SC.stream("/tracks/216847995").then(function(player){
+  	// streams the track
+  	myPlayer = player;
+  	myPlayer.play();
+	});
+});
+
+stopbtn.addEventListener("click", function(){
+	myPlayer.pause();
+	myPlayer.seek(0);
+});
+
+pausebtn.addEventListener("click", function(){
+	myPlayer.pause();
+})
+
+</script>
+</body>
+</html>

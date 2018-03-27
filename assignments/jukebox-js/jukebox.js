@@ -8,6 +8,7 @@ var jukebox = document.getElementById('jukebox');
 var play = document.getElementById('play');
 var stop = document.getElementById('stop');
 var pause = document.getElementById('pause');
+var currentTime;
 
 play.addEventListener("click", function(){
 	var song = document.getElementById('song').value;
@@ -15,6 +16,7 @@ play.addEventListener("click", function(){
 	setInterval(checkEnd, 1000);
 	//playSong();
 	jukebox.src = song + ".mp3";
+	currentTime;
 	jukebox.play();
 });
 
@@ -25,6 +27,7 @@ stop.addEventListener("click", function(){
 
 pause.addEventListener("click", function(){
 	console.log("pause clicked");
+	currentTime = jukebox.currentTime;
 	jukebox.pause();
 });
 

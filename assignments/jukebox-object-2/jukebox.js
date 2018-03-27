@@ -15,7 +15,7 @@ function Song(title, theId){
 								console.log(title)
 								audio.src = title + ".mp3";
 								titleSpan = document.createElement("span");
-								titleSpan.innerHTML=title;
+								titleSpan.innerHTML=" " + title;
 								root.appendChild(titleSpan);
 								var controlsDiv = document.createElement("div");
 								root.style.border = "2px solid black";
@@ -38,9 +38,16 @@ function Song(title, theId){
 
 	this.play =	$("#play"+ theId).click(function(){
 									document.getElementById(theId).play();
+									this.style.color = "red";
 								})					
 	this.stop = $("#stop"+ theId).click(function(){
 								document.getElementById(theId).load();
+								//this.nextElementSibling.style.color = "cyan";
+
+								for(let i in document.querySelectorAll("button")){
+									console.log(document.querySelectorAll('button'));
+									document.querySelectorAll("button")[i].style.color = "cyan";	
+								}
 								});
 	this.pause = $("#pause" + theId).click(function(){
 
@@ -59,11 +66,10 @@ var ladiesNight = new Song("Ladies Night", "four");
 //Adding auto play from current playlist
 
 const songs = ["one", "two", "three", "four"];
-
 playSong();
 
 function playSong(){
-			document.getElementById(songs[i]).play()
+			document.getElementById(songs[i]).play();
 			setInterval(checkEnd, 1000);
 };
 
@@ -72,12 +78,13 @@ function checkEnd(){
 				i++;
 				if(i == songs.length){
 					i=0;
-					document.getElementById(songs[i]).load();
-					
+					document.getElementById(songs[i]).load();				
 				}
 				playSong();
 			}
 }
+
+
 
 // Adding Shuffle 
 var shuffleBtn = document.createElement("button");
@@ -104,3 +111,25 @@ shuffle.addEventListener("click", function(){
   }
   playSong();
 })
+
+Song.prototype.myStyle = function(){
+	$("#play"+ theId).click(function(){
+		$("#play"+ theId).style.backgroundColor = "green";
+})
+}
+
+var dummyBtn1 = document.createElement("button");
+dummyBtn1.innerHTML = "AV";
+root.appendChild(dummyBtn1);
+
+var dummyBtn2 = document.createElement("button");
+dummyBtn2.innerHTML = "AUX"; 
+root.appendChild(dummyBtn2);
+
+var dancingBaby = document.createElement("img");
+dancingBaby.src = "https://vignette.wikia.nocookie.net/someordinarygamers/images/f/f8/90s-gifs-dancing-baby.gif/revision/latest?cb=20150315032807";
+dancingBaby.id = "dancer";
+var root = document.querySelector("#root");
+root.appendChild(dancingBaby);
+
+

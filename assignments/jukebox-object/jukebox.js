@@ -3,13 +3,11 @@ var jukebox = document.getElementById('jukebox');
 var play = document.getElementById('play');
 var stop = document.getElementById('stop');
 var pause = document.getElementById('pause');
-//var title = document.getElementById('song').value;
 var playlist = document.querySelector("#playlist");
 var currentSong = document.querySelector("#currentSong");
 var theCurrentTime = 0;
 
 var jukeSong;
-//var song;
 var i = 0;
 
 function Song(title){
@@ -18,8 +16,6 @@ function Song(title){
 							if(playlist.checked != true){
 								title = document.getElementById('song').value;
 								jukebox.src = title + ".mp3";
-								//theCurrentTime = jukebox.currentTime;
- 								//var title = document.getElementById('song').value;
 								setInterval(checkEnd, 1000);
  								jukebox.src = title + ".mp3";
 								jukebox.currentTime  = theCurrentTime;
@@ -44,13 +40,10 @@ var getDown = new Song("Get Down");
 var iWillSurvive = new Song("I Will Survive");
 var ladiesNight = new Song("Ladies Night");
 
-
-
 const songs = [getDown.title, byeBaby.title, iWillSurvive.title, ladiesNight.title];
 
 function playSong(){
 			jukebox.src = songs[i] + ".mp3";
-			//jukebox.currentTime  = theCurrentTime;
 			jukebox.play();
 			currentSong.innerHTML = songs[i];
 			setInterval(checkEnd, 1000);

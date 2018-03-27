@@ -3,30 +3,72 @@
 <head>
 	<title></title>
 	<style type="text/css">
-		span{
+		body{
+			position: fixed;
+			background: url("https://i.pinimg.com/originals/4b/d5/ed/4bd5edf713a9c11ac6eab300a6375378.gif");
+			flex: display;
+		}
+		#prevSong, #nextSong, #playSong, #pauseSong, #stopSong{
 			width: 100px;
 			height: 50px;
 			border: 1px solid black;
 			padding: 10px;
 			cursor: pointer;
+			background-color: fuchsia;
+			display: 1;
+			box-shadow: 5px 5px 5px purple;
 		}
+		#prevSong:hover, #nextSong:hover, #playSong:hover, #pauseSong:hover, #stopSong:hover{
+			background-color: purple;
+		}
+
 		#currentSongContainer{
-			margin-top: 30px;
+			width: 100%;
+			margin: 6% 40% 0;
+			background-color: lime;
 		}
 		#currentSong{
+			font-size: 20px;
 			border:0px;
+		}
+		select{
+			margin-left: 30%;
+			font-size: 20px;
+			background-color: lime;
+		}
+		#controls{
+			width: 80%;
+			margin: 10% 0 0 90%;
+		}
+		#jukebox{
+			width: 50%;
+			margin: 0 auto;
+		}
+		#currentLabel{
+			font-size: 25px;
+			background-color: fuchsia;
+		}
+		img{
+			display: block;
+			margin: 0 80%;
+		}
+		h1{
+			margin-left: 76%;
+			text-align: center;
+			color: fuchsia;
+		}
+		#dancing-baby{
+			width: 20%;
+			margin-left: 60%;
 		}
 	</style>
 </head>
 <body>
+<h1>SC-Baluba</h1>
 <div id="jukebox">
 
 
 	<select id="listSongs"></select>
-	<br>
-	<br>
-
-	<img src="" id="artwork">
 	<br>
 	<br>
 	<div id="info"></div>
@@ -35,59 +77,45 @@
 		</div>
 </div>
 <div id="currentSongContainer">
-	Currently Playing: <span id="currentSong"></span>
+	<span id="currentLabel">Currently Playing:</span><span id="currentSong"></span>
 </div>
-<progress value="0" max="100" id="progressBar"></progress>
 
+<img src="" id="artwork">
+<div id="dancing-baby">
+	<img src="dancing-baby.gif">
+</div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
 </script>
 <script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
 <script>
-	/*
-	$("#playSong").click(function(){
-		$("#jukeboxAudio")[0].play();
-	})
-	$("#stopSong").click(function(){
-		$("#jukeboxAudio")[0].load();
-	})
-	$("#pauseSong").click(function(){
-		$("#jukeboxAudio")[0].pause();
-	})
-	*/
-
+var listBox = document.getElementById("listSongs");
+var playlist = [];
   SC.initialize({
-    //client_id: 'fd4e76fc67798bfa742089ed619084a6'
     client_id: "ebe2d1362a92fc057ac484fcfb265049"
   });
 
-  const playlist = [];
-
-  SC.get("/tracks",{q: "Dogs"}).then(function(response){
+  SC.get("/tracks",{q: "sad"}).then(function(response){
  		playlist.push(...response);
   	console.log(response);
-  	//play(0);
 
   	//list songs in select box
-  	var listBox = document.getElementById("listSongs");
+  	listBox = document.getElementById("listSongs");
   	for(let i = 0; i<response.length; i++){
   		console.log(response[i].title);
-  		listBox.innerHTML += `<option> ${response[i].title}</option>`;
+  		listBox.innerHTML += `<option data-theIndex=${i}> ${response[i].title}</option>`;
   	}
   });
-
-  var progressBar = document.getElementById("progressBar");
 
 	// let player;
   function play(index){
   	if(!playlist[index].player){
 	  SC.stream(`/tracks/${playlist[index].id}`).then(function(player){
 	  	playlist[index].player = player;
-	  	setTimeout(checkProgress(player), 10000);
+	  	//setTimeout(checkProgress(player), 10000);
 	  	player.play();
 	  });
 		}else{
 			playlist[index].player.play();
-
 		}
 		document.getElementById("currentSong").innerHTML = `${playlist[index].title}`;
 		document.querySelector("#artwork").src = `${playlist[index].artwork_url}`;
@@ -96,22 +124,21 @@
 
 		function checkProgress(player){
 			console.log(player.currentTime());
-			console.log(progressBar.value);
-			//progressBar.value = player.currentTime();
 		}
 
-var songNumber;
+var songNumber = 0;
 //click play to play 1st song
 	$("#playSong").click(function(){
-		songNumber = 0;
+		//songNumber = 0;
 		console.log(songNumber);
 		play(songNumber);
+		selectBoxSong(songNumber);
 	//	
-	})
+	});
 //click Pause to pause song
 	$("#pauseSong").click(function(){
 		playlist[songNumber].player.pause();
-	})
+	});
 
 //click Stop to stop song
 	$("#stopSong").click(function(){
@@ -119,19 +146,60 @@ var songNumber;
 		playlist[songNumber].player.pause();
 	})
 	$("#nextSong").click(function(){
+		playlist[songNumber].player.seek(0);
+		playlist[songNumber].player.pause();
 		songNumber++;
 		songNumber = songNumber % (playlist.length);
 		console.log(songNumber);
+		// playlist[songNumber].player.seek(0);
 		play(songNumber);
-	})
+		selectBoxSong(songNumber);
+	});
 		$("#prevSong").click(function(){
+		playlist[songNumber].player.seek(0);
+		playlist[songNumber].player.pause();
 		songNumber--;
 		songNumber = songNumber % (playlist.length);
+		if(songNumber == -1){
+			songNumber = playlist.length - 1;
+		}
 		console.log(songNumber);
-		playlist[songNumber].player.seek(0)
 		play(songNumber);
+		selectBoxSong(songNumber);
+	});
+
+	//Find selected song from dropdown list
+	function selectBoxSong(songNumber){
+		document.querySelectorAll("option")[songNumber].selected = true;
+	}
+
+	//Select song from dropdown list
+	listBox.addEventListener("change", function(){
+		console.log(document.querySelectorAll("option"));
+		var myList = document.querySelectorAll("option");
+		for(let x in myList){
+		if(document.querySelectorAll("option")[x].selected == true){
+		songNumber = x;
+		console.log(songNumber);
+			play(songNumber);
+		}
+	 }
 	})
 
+setInterval(checkEndOfSong, 1000);
+
+	//Check end of song, if end, play next song
+	function checkEndOfSong(){
+		if(playlist[songNumber].player.getState() == "ended"){
+			songNumber++;
+			if(songNumber === playlist.length){
+				songNumber = 0;
+			}
+		play(songNumber);
+		selectBoxSong(songNumber);
+		}
+		
+	}
 
 </script>
 <script type="text/javascript" src="soundcloud-1.js"></script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using Promise with SoundCloud</title>
+</head>
+<body>
+<button id="play">PLAY</button><button id="pause">PAUSE</button>
+
+<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+<script type="text/javascript">
+	
+var myPlayer;
+var play = document.querySelector("#play");
+var pause = document.querySelector("#pause");
+SC.initialize({
+  client_id: 'ebe2d1362a92fc057ac484fcfb265049'
+});
+
+play.addEventListener("click", function(){
+SC.stream("/tracks/216847995").then(function(player){
+  // streams the track
+  myPlayer = player;
+  myPlayer.play();
+
+});
+})
+
+pause.addEventListener("click", function(){
+	myPlayer.pause();
+})
+
+
+</script>
+
+</body>
+</html>

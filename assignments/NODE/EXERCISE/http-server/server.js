@@ -11,5 +11,8 @@ http.createServer(function (req, res) {
 
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('<h1>Hello World from Node Server!</h1>');
-}).listen(8080);
+    res.write('<h1>My Node Webserver!</h1>')
+    res.end('<h1>Hello World from Node Server again!</h1>');
+}).listen(8080, function(){
+	console.log("Server started on port 8080...");
+});

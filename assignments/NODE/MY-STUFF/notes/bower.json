@@ -1,0 +1,21 @@
+{
+  "name": "notes",
+  "description": "",
+  "main": "",
+  "authors": [
+    "ohemeng <francis_adu@yahoo.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ohemeng/NYCDA-EJI-JAN18",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1"
+  }
+}

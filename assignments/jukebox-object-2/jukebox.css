@@ -1,9 +1,37 @@
 body{
-	width: 80%;
+	width: 400px;
+	height: 100vh;
 	background-color: oldlace;
+	margin: 0 auto;
+	background: url("http://1.bp.blogspot.com/-bY7XYamqpxk/VSWFGkws6lI/AAAAAAAAEAo/KcJEYJk2dd0/s600/euro-dance-BenjaminMadeira-com.gif");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: lime;
 }
-
+h1{
+	text-align: center;
+	color: fuchsia;
+}
+#root{
+	position: fixed;
+	background:linear-gradient(#000000,#ababab);
+	box-shadow: 5px 5px 2px purple;
+}
 img{
 	display: block;
 	width: 25vw;
+}
+
+button{
+	width: 100px;
+	height: 40px;
+	background:linear-gradient(#000000,#ababab);
+	color: cyan;
+}
+button:hover{
+	background: #ededed;
+}
+#dancer{
+	width: 120px;
+	margin-left: 30%;
 }

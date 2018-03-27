@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Traffic Light with Promises</title>
+  <style type="text/css">
+  	#red, #yellow, #green{
+  width: 100px;
+  height: 100px;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+#red{
+ background-color: red;
+}
+
+#yellow{
+ background-color: yellow;
+}
+
+#green{
+ background-color: green;
+}
+  </style>
+</head>
+<body>
+  <div id="red"></div>
+  <div id="yellow"></div>
+  <div id="green"></div>
+  <script type="text/javascript">
+  	//Promises with traffic lights
+
+var red = document.querySelector("#red");
+var yellow = document.querySelector("#yellow");
+var green = document.querySelector("#green");
+
+var trafficLight = function(){
+var redLight = new Promise(function(resolve, reject){
+  setTimeout(function(){
+    red.style.opacity = 1;
+    yellow.style.opacity = 0.2;
+    console.log("red on")
+    resolve("red on");
+  }, 2000)
+})
+.then(function(result){
+var greenLight = new Promise(function(resolve, reject){
+  setTimeout(function(){
+  green.style.opacity = 1;
+  red.style.opacity = 0.2;
+  console.log("green on")
+  resolve("green on");
+    }, 2000);
+  })
+.then(function(result){
+  setTimeout(function(){
+   yellow.style.opacity = 1;
+   green.style.opacity = 0.2;
+    console.log("yellow on")
+  }, 2000)
+  return;
+ })
+})
+}
+//setInterval(trafficLight, 6000);
+trafficLight();
+  </script>
+</body>
+</html>
